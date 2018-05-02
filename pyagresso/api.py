@@ -28,11 +28,9 @@ class Agresso(object):
         * instance_url -- the url to the agresso webservice, optional e.g. https://ABCORP-test.unit4cloud.com/ca_ABCORP_test_wsHost/service.svc
         """
         if all(arg is not None for arg in (username, password, client, instance_url)):
-            self.credentials = f"""<quer:credentials>
-                                <quer:Username>{username}</quer:Username>
-                                <quer:Client>{client}</quer:Client>
-                                <quer:Password>{password}</quer:Password>
-                            </quer:credentials>"""
+            self.username = username
+            self.client = client
+            self.password = password
             self.instance_url = instance_url
             self.soap_action_base_url = soap_action_base_url
             self.session = requests.Session()
@@ -162,7 +160,11 @@ class Agresso(object):
                                 <soapenv:Body>
                                     <quer:{soap_action}>
                                         {params}
-                                        {self.credentials}
+                                        <quer:credentials>
+                                            <quer:Username>{self.username}</quer:Username>
+                                            <quer:Client>{self.client}</quer:Client>
+                                            <quer:Password>{self.password}</quer:Password>
+                                        </quer:credentials>
                                     </quer:{soap_action}>
                                 </soapenv:Body>
                             </soapenv:Envelope>""")
