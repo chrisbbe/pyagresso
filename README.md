@@ -12,7 +12,8 @@ This module helps developers work with the Agresso Unit4 (ver. Milestone 4) Quer
 SOAP webservice easily without worry about the transport layer/protocol and getting data in easible
 ingestible formats: JSON, CSV
 
-Installation:
+## Installation:
+
 `$ pip install pyagresso`
 
 ## Example:
