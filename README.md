@@ -29,10 +29,15 @@ about_response_as_xml = ag.about()
 
 ## Todo:
 [*] Setup basic pypi project and Agresso class with test harness
+
 [ ] Add methods to get response as JSON
+
 [ ] Add methods to get response as CSV
+
 [ ] Add internal helpers to parse xml (schema+records)
+
 [ ] Make QueryEngine methods into submodule and add capability for extension into other Agresso modules
+
 [ ] Version the SDK for various Agresso releases
 
 ## Other notes: 
