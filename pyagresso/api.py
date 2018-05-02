@@ -78,7 +78,7 @@ class Agresso(object):
         """
         # TODO: Use all other params to gettemplateasdataset soap method
 
-        if template_id is None or type(template_id) is not int:
+        if (template_id is None or type(template_id) is not int):
             raise TypeError("You must provide a template_id of type 'int'.")
         return self._execute_query('GetTemplateResultAsXML', f"<quer:input><quer:TemplateId>{template_id}</quer:TemplateId></quer:input>")
 
@@ -86,7 +86,7 @@ class Agresso(object):
         """
         GetTemplateMetaData(templateId: xsd:long, credentials: ns0:WSCredentials) -> GetTemplateMetaDataResult: ns0:TemplateMetaData
         """
-        if template_id is None or type(template_id) is not int:
+        if (template_id is None or type(template_id) is not int):
             raise TypeError("You must provide a template_id of type 'int'.")
         return self._execute_query('GetTemplateMetaData', f"<quer:templateId>{template_id}</quer:templateId>")
 
@@ -95,7 +95,7 @@ class Agresso(object):
         GetTemplateProperties(templateId: xsd:long, credentials: ns0:WSCredentials) 
         -> GetTemplatePropertiesResult: ns0:TemplateProperties
         """
-        if template_id is None or type(template_id) is not int:
+        if (template_id is None or type(template_id) is not int):
             raise TypeError("You must provide a template_id of type 'int'.")
         return self._execute_query('GetTemplateProperties', f"<quer:templateId>{template_id}</quer:templateId>")
 
@@ -109,7 +109,7 @@ class Agresso(object):
         """
         GetExpression(templateId: xsd:long, credentials: ns0:WSCredentials) -> GetExpressionResult: ns0:Expression
         """
-        if template_id is None or type(template_id) is not int:
+        if (template_id is None or type(template_id) is not int):
             raise TypeError("You must provide a template_id of type 'int'.")
         return self._execute_query('GetExpression', f"<quer:templateId>{template_id}</quer:templateId>")
 
@@ -117,7 +117,7 @@ class Agresso(object):
         """
         GetFormatInfo(templateId: xsd:long, credentials: ns0:WSCredentials) -> GetFormatInfoResult: ns0:FormatInfo
         """
-        if template_id is None or type(template_id) is not int:
+        if (template_id is None or type(template_id) is not int):
             raise TypeError("You must provide a template_id of type 'int'.")
         return self._execute_query('GetFormatInfo', f"<quer:templateId>{template_id}</quer:templateId>")
 
@@ -125,7 +125,7 @@ class Agresso(object):
         """
         GetSearchCriteria(templateId: xsd:long, hideUnused: xsd:boolean, credentials: ns0:WSCredentials) -> GetSearchCriteriaResult: ns0:SearchCriteria
         """
-        if template_id is None or type(template_id) is not int:
+        if (template_id is None or type(template_id) is not int):
             raise TypeError("You must provide a template_id of type 'int'.")
         return self._execute_query('GetSearchCriteria', f"<quer:templateId>{template_id}</quer:templateId><quer:hideUnused>{hide_unused}</quer:hideUnused>")
 
@@ -133,7 +133,7 @@ class Agresso(object):
         """
         GetStatisticalFormula(templateId: xsd:long, credentials: ns0:WSCredentials) -> GetStatisticalFormulaResult: ns0:StatisticalFormula
         """
-        if template_id is None or type(template_id) is not int:
+        if (template_id is None or type(template_id) is not int):
             raise TypeError("You must provide a template_id of type 'int'.")
         return self._execute_query('GetStatisticalFormula', f"<quer:templateId>{template_id}</quer:templateId>")
 
@@ -142,7 +142,7 @@ class Agresso(object):
         GetTemplateList(formList: xsd:string, descrList: xsd:string, credentials: ns0:WSCredentials) -> GetTemplateListResult: ns0:TemplateList
         """
         # TODO:need to check docs for this method and make the two inputs optional, if needed and formulate the params accordingly.
-        if form_list is None or description_list is None:
+        if (form_list is None or description_list is None):
             raise TypeError("You must provide form and description lists.")
         return self._execute_query('GetTemplateList', f"<quer:formList>{form_list}</quer:formList><quer:descrList>{description_list}</quer:descrList>")
 
