@@ -19,25 +19,28 @@ ingestible formats: JSON, CSV
 ## Example:
 
 ```python
-from pyagresso.api import Agresso
+from pyagresso.queryengineservice import QueryEngineService
 username = os.getenv('AGRESSO_USERNAME')
 password = os.getenv('AGRESSO_PASSWORD')
 client = os.getenv('AGRESSO_CLIENT')
 instance_url = os.getenv('AGRESSO_INSTANCE_URL')
-ag = Agresso(username, password,client,instance_url)
+ag = QueryEngineService(username, password,client,instance_url)
 about_response_as_xml = ag.about()
 ```
 
 ## Todo:
 [*] Setup basic pypi project and Agresso class with test harness
 
-[ ] Add methods to get response as JSON
+[ ] Solidify test harness (fixtures for API calls etc)
 
-[ ] Add methods to get response as CSV
+~[ ] Add methods to get response as JSON~ [Please PR/Contribute]
 
-[ ] Add internal helpers to parse xml (schema+records)
+~[ ] Add methods to get response as CSV~ [Please PR/Contribute]
 
-[ ] Make QueryEngine methods into submodule and add capability for extension into other Agresso modules
+~[ ] Add internal helpers to parse xml (schema+records)~ [Please PR/Contribute]
+
+[*] Make QueryEngine methods into submodule and add capability for extension into other Agresso modules
+
 
 [ ] Version the SDK for various Agresso releases
 

@@ -13,12 +13,12 @@ ingestible formats: JSON, CSV
 
 Example:
     ```python
-    from pyagresso.api import Agresso
+    from pyagresso.queryengineservice import QueryEngineService
     username = os.getenv('AGRESSO_USERNAME')
     password = os.getenv('AGRESSO_PASSWORD')
     client = os.getenv('AGRESSO_CLIENT')
     instance_url = os.getenv('AGRESSO_INSTANCE_URL')
-    ag = Agresso(username, password,client,instance_url)
+    ag = QueryEngineService(username, password,client,instance_url)
     about_response_as_xml = ag.about()
     ```
 
@@ -34,4 +34,4 @@ Note:
 
 """
 
-from pyagresso.api import Agresso
+from pyagresso.queryengineservice import QueryEngineService

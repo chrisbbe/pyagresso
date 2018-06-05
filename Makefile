@@ -5,7 +5,7 @@ include .env
 export $(shell sed 's/=.*//' .env)
 
 # declare constant(s)
-TEST_PATH=./
+TEST_PATH=./tests/
 
 
 all: test
@@ -17,7 +17,11 @@ clean:
 	rm -rf build/
 	rm -rf dist/
 
+debug: clean
+	pytest --pdb --color=yes $(TEST_PATH)
+
 test: clean
+	pip install -e .
 	pytest --verbose --color=yes $(TEST_PATH)
 
 build:

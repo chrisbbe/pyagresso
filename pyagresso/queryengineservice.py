@@ -1,8 +1,8 @@
 import logging
 import requests
 from collections import namedtuple
-import pytest
 import os
+import xml.etree.ElementTree as etree
 
 #pylint: disable=invalid-name
 logger = logging.getLogger(__name__)
@@ -10,10 +10,10 @@ logger = logging.getLogger(__name__)
 # for returning multiple values instead of dict/class
 AgressoRequestType = namedtuple('AgressoRequest', ['headers', 'data'])
 
-class Agresso(object):
-    """Agresso Instance
-    An instance of Agresso is a handy way to wrap an Agresso session
-    for easy use of the webservice.
+class QueryEngineService(object):
+    """QueryEngineService Instance
+    An instance of QueryEngineService is a handy way to wrap an QueryEngineService session
+    for easy use of the QueryEngineService.
     """
 
     def __init__(self, username=None, password=None, client=None, instance_url=None, soap_action_base_url='http://services.agresso.com/QueryEngineService/QueryEngineV201101'):
@@ -146,6 +146,15 @@ class Agresso(object):
             raise TypeError("You must provide form and description lists.")
         return self._execute_query('GetTemplateList', f"<quer:formList>{form_list}</quer:formList><quer:descrList>{description_list}</quer:descrList>")
 
+    # def _get_schema_from_xml(self, data):
+    #     # parsexml fromstring
+    #     # get schema element on xpath
+    #     from bs4 import BeautifulSoup
+    #     soup = BeautifulSoup(data, 'lxml-xml')
+    #     # print(soup.prettify())
+    #     for e in soup.find_all('element'):
+    #         print(f"{e}, {e.attrs}") 
+
     def _execute_query(self, soap_action, params):
         payload = self._request_builder(soap_action, params)
         result = self._call_agresso('POST', payload)
@@ -183,7 +192,7 @@ class Agresso(object):
 
         Returns a `requests.result` object.
         """
-        if payload is None or type(payload) is not dict:
+        if payload is None or type(payload) is not AgressoRequestType:
             raise ValueError
 
         result = self.session.request(
@@ -191,7 +200,3 @@ class Agresso(object):
         if result.status_code >= 300:
             raise Exception(result.status_code, result.text)
         return result
-
-
-if __name__ == '__main__':
-    pytest.main()
